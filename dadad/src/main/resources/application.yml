@@ -1,0 +1,16 @@
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost:5432/StreamNest
+        username: user_login
+        password: user_password
+    liquibase:
+        change-log: classpath:db/changelog/db-changelog.xml
+    data:
+        jdbc:
+            dialect: postgresql
+    jpa:
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+        hibernate:
+            ddl-auto: none
