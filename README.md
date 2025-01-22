@@ -7,7 +7,7 @@ Die Dateien werden sicher in einem **AWS S3-Bucket** gespeichert und können üb
 Das Projekt ist kein richtiger Streamingdienst, wie Netflix und co. mehr ein kleines Projekt zum üben.
 Es gibt einen Admin User und dieser kann über das Admin Tool, user hinzufügen.
 Diese bekommen eine Email die sie dazu auffordert ein Passwort zu vergeben.
-Danach können die User die Filme schauen.
+Danach können die User die Filme, Videos etc schauen.
 
 
 ## 🛠️ Verwendete Sprachen und Technologien
