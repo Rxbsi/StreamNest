@@ -1,13 +1,15 @@
 # 🎥 StreamNest
 
 ## 🔧 Projektbeschreibung
-Ein moderner Streaming-Service, der es Benutzern ermöglicht, Filme über einen HTTP-Endpunkt hochzuladen und abzurufen.
-Die Dateien werden sicher in einem **AWS S3-Bucket** gespeichert und können über generierte URLs gestreamt werden.
+Dieses Projekt ist ein kompakter und moderner Streaming-Service, der als Übungsprojekt dient und nicht mit großen Plattformen wie Netflix konkurrieren soll.
+Es bietet grundlegende Funktionen für das Hochladen, Abrufen und Abspielen von Medieninhalten.
 
-Das Projekt ist kein richtiger Streamingdienst, wie Netflix und co. mehr ein kleines Projekt zum üben.
-Es gibt einen Admin User und dieser kann über das Admin Tool, user hinzufügen.
-Diese bekommen eine Email die sie dazu auffordert ein Passwort zu vergeben.
-Danach können die User die Filme schauen.
+Admins können Filme und Videos über einen HTTP-Endpunkt hochladen, die sicher in einem AWS S3-Bucket gespeichert werden.
+Die gespeicherten Dateien werden über generierte URLs bereitgestellt, sodass Inhalte bequem gestreamt werden können.
+
+Ein zentraler Admin-Benutzer verwaltet den Dienst und hat die Möglichkeit, neue Benutzer hinzuzufügen.
+Diese erhalten eine E-Mail, in der sie eingeladen werden, ein persönliches Passwort zu erstellen.
+Nach erfolgreicher Registrierung können die Benutzer auf die hochgeladenen Inhalte zugreifen und diese ansehen.
 
 
 ## 🛠️ Verwendete Sprachen und Technologien
@@ -17,6 +19,7 @@ Danach können die User die Filme schauen.
 - **🌐 React.js**: Frontend Framework
 - **🌈 Bootstrap**: CSS Framework
 - **☁️ AWS, S3 Buckets**: Speicherung der Filme
+- **🎫YouTrack**: Ticket Verwaltung für bessere übersicht
 - **🐘PostgreSQL**: Für die restliche Datenspeicherung (User Verwaltung usw)
 
 
