@@ -1,0 +1,32 @@
+// Primary Colors
+$primary: #0A192F; // Dunkelblau
+$primary-light: #112240;
+$primary-dark: #020c1b;
+
+// Secondary & Accent Colors
+$secondary: #ff4500; // Orange-Rot für Highlights (z. B. Buttons)
+$secondary-light: #ff5e24;
+$secondary-dark: #cc3700;
+
+$success: #1db954; // Spotify-Grün für Erfolgsnachrichten
+$warning: #ffcc00; // Gelb für Warnungen
+$error: #e50914; // Netflix-Rot für Fehler
+
+// Neutral Colors
+$black: #121212; // Fast schwarz für den Hintergrund
+$dark-gray: #181818;
+$gray: #282828; // Dunkelgrau für Panels
+$light-gray: #b3b3b3; // Helles Grau für inaktiven Text
+$white: #ffffff; // Weiß für Haupttext
+
+// Gradients
+$gradient-primary: linear-gradient(135deg, $primary, $primary-dark);
+$gradient-secondary: linear-gradient(135deg, $secondary, $secondary-dark);
+
+// Box Shadows
+$box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+
+// Box Shadows
+$box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+
+@import '~bootstrap/scss/bootstrap';

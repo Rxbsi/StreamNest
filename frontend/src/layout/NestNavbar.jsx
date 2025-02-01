@@ -13,7 +13,7 @@ function NestNavbar() {
 
     const handleClick = () => {
         setVisible(true);
-        setTimeout(() => inputRef.current?.focus(), 0);
+        setTimeout(() => inputRef.current?.focus(), 0); // Proper Dom Rendering
     };
 
     const handleBlur = () => {
@@ -31,9 +31,9 @@ function NestNavbar() {
     };
 
     return (
-        <Navbar bg="dark" data-bs-theme="dark">
+        <Navbar bg="primary">
             <Container>
-                <Navbar.Brand as={Link} to={"/"}>StreamNest</Navbar.Brand>
+                <Navbar.Brand as={Link} to={"/"} className={"text-white text-secondary text-decoration-none"}>StreamNest</Navbar.Brand>
                 <Nav className="ms-auto">
                     <Nav.Link as={Link} to="/films" className="text-white text-secondary text-decoration-none">
                         Filme
@@ -44,7 +44,7 @@ function NestNavbar() {
                     {!isVisible && (
                         <Button variant="link" onClick={handleClick} className="p-0 p-lg-1">
                             <div className="d-flex justify-content-center align-items-center">
-                                <FaSearch size={20} color="white" />
+                                <FaSearch size={15} color="white" />
                             </div>
                         </Button>
                     )}
