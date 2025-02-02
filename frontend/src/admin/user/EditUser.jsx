@@ -44,6 +44,7 @@ export default function EditUser() {
 
     useEffect(() => {
         loadUser();
+        // eslint-disable-next-line
     }, []);
 
     const loadUser = async () => {
@@ -84,7 +85,7 @@ export default function EditUser() {
                                 placeholder="Enter your username"
                                 name="username"
                                 value={username}
-                                onChange={onInputChange}
+                                onChange={(e) => onInputChange(e)}
                             />
                         </div>
                         <div className="mb-3">
@@ -97,7 +98,7 @@ export default function EditUser() {
                                 placeholder="Enter your name"
                                 name="name"
                                 value={name}
-                                onChange={onInputChange}
+                                onChange={(e) => onInputChange(e)}
                             />
                         </div>
                         <div className="mb-3">
@@ -110,7 +111,7 @@ export default function EditUser() {
                                 placeholder="Enter your Last Name"
                                 name="lastName"
                                 value={lastName}
-                                onChange={onInputChange}
+                                onChange={(e) => onInputChange(e)}
                             />
                         </div>
                         <div className="mb-3">
@@ -123,7 +124,7 @@ export default function EditUser() {
                                 placeholder="Enter your e-mail address"
                                 name="email"
                                 value={email}
-                                onChange={onInputChange}
+                                onChange={(e) => onInputChange(e)}
                             />
                         </div>
                         <div className="mb-3">
@@ -136,7 +137,7 @@ export default function EditUser() {
                                 className="form-check-input"
                                 name="admin"
                                 checked={admin}
-                                onChange={onInputChange}
+                                onChange={(e) => onInputChange(e)}
                             />
                         </div>
                         <button type="submit" className="btn btn-outline-primary" onClick={navigateToAdmin}>
