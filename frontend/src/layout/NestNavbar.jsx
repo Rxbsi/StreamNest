@@ -4,12 +4,21 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { Button, FormControl, InputGroup } from "react-bootstrap";
+import {Button, FormControl, InputGroup, NavDropdown} from "react-bootstrap";
+import {useAuth} from "../admin/user/auth/AuthContext";
 
 function NestNavbar() {
+    const { user, logout } = useAuth();
     const [isVisible, setVisible] = useState(false);
     const navigate = useNavigate();
     const inputRef = useRef(null);
+
+    if (!user) return null;
+
+    const handleLogout = () => {
+        logout();
+        navigate('/login');
+    };
 
     const handleClick = () => {
         setVisible(true);
@@ -33,7 +42,9 @@ function NestNavbar() {
     return (
         <Navbar bg="primary">
             <Container>
-                <Navbar.Brand as={Link} to={"/"} className={"text-white text-secondary text-decoration-none"}>StreamNest</Navbar.Brand>
+                <Navbar.Brand as={Link} to={"/"} className={"text-white text-secondary text-decoration-none"}>
+                    StreamNest
+                </Navbar.Brand>
                 <Nav className="ms-auto">
                     <Nav.Link as={Link} to="/films" className="text-white text-secondary text-decoration-none">
                         Filme
@@ -58,6 +69,29 @@ function NestNavbar() {
                                 onBlur={handleBlur}
                             />
                         </InputGroup>
+                    )}
+                    {user ? (
+                        <NavDropdown
+                            title={<span className="text-white">{user.username}</span>}
+                            id="nav-dropdown"
+                        >
+                            <NavDropdown.Item as={Link} to="/profile">Profile</NavDropdown.Item>
+
+                            {user?.isAdmin && (
+                                <>
+                                    <NavDropdown.Divider />
+                                    <NavDropdown.Item as={Link} to="/admin/user">User Settings</NavDropdown.Item>
+                                    <NavDropdown.Item as={Link} to="/admin/upload">Upload Film</NavDropdown.Item>
+                                </>
+                            )}
+
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
+                        </NavDropdown>
+                    ) : (
+                        <Nav.Link as={Link} to="/login" className="text-white">
+                            Login
+                        </Nav.Link>
                     )}
                 </Nav>
             </Container>

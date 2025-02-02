@@ -66,5 +66,8 @@ public class UserServiceImpl implements UserService {
         if (source.getEmail() != null) {
             target.setEmail(source.getEmail());
         }
+        if (source.getAdmin() != null) {
+            target.setAdmin(source.getAdmin());
+        }
     }
 }

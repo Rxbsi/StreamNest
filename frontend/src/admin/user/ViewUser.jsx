@@ -17,8 +17,20 @@ export default function ViewUser() {
     }, []);
 
     const loadUser = async () => {
-        const result = await axios.get(`http://localhost:8080/api/user/byId/${id}`)
-        setUser(result.data);
+        const token = localStorage.getItem("token");
+
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        };
+
+        try {
+            const result = await axios.get(`http://localhost:8080/api/user/byId/${id}`, config)
+            setUser(result.data);
+        } catch (error) {
+            console.error("Error fetching users:", error);
+        }
     };
 
     return (
@@ -47,10 +59,14 @@ export default function ViewUser() {
                                     <b>Email: </b>
                                     {user.email}
                                 </li>
+                                <li className="list-group-item">
+                                    <b>Admin: </b>
+                                    {user.admin ? "Ja" : "Nein"}
+                                </li>
                             </ul>
                         </div>
                     </div>
-                    <Link className="btn btn-primary my-2" to={"/admin/home"}>
+                    <Link className="btn btn-primary my-2" to={"/admin/user"}>
                         Back to Home
                     </Link>
                 </div>

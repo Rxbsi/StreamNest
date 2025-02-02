@@ -1,31 +1,51 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {Link, useParams} from "react-router-dom";
-import {FaPlus} from "react-icons/fa";
-import {Button} from "react-bootstrap";
+import { Link, useParams } from "react-router-dom";
+import { FaPlus } from "react-icons/fa";
+import { Button } from "react-bootstrap";
 
 export default function Home() {
     const [users, setUsers] = useState([]);
-
-    const {id} = useParams();
+    const { id } = useParams();
 
     useEffect(() => {
         loadUsers();
     }, []);
 
     const loadUsers = async () => {
-        const result = await axios.get("http://localhost:8080/api/user/users");
-        setUsers(result.data);
+        const token = localStorage.getItem("token");
+
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        };
+
+        try {
+            const result = await axios.get("http://localhost:8080/api/user/users", config);
+            setUsers(result.data);
+        } catch (error) {
+            console.error("Error fetching users:", error);
+        }
     };
 
     const deleteUser = async (id) => {
-        await axios.delete(`http://localhost:8080/api/user/delete/${id}`);
-        loadUsers();
+        const token = localStorage.getItem("token");
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        };
+
+        try {
+            await axios.delete(`http://localhost:8080/api/user/delete/${id}`, config);
+            loadUsers(); // Benutzer nach dem Löschen neu laden
+        } catch (error) {
+            console.error("Error deleting user:", error);
+        }
     };
 
-    const handleClick = () => {
-
-    }
+    const handleClick = () => {};
 
     return (
         <div className="container">
@@ -38,17 +58,19 @@ export default function Home() {
                         <th scope="col">Name</th>
                         <th scope="col">Last Name</th>
                         <th scope="col">Email</th>
+                        <th scope="col">Admin</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
                     <tbody>
                     {users.map((user, index) => (
-                        <tr>
+                        <tr key={user.id}>
                             <td className="align-middle">{user.id}</td>
                             <td className="align-middle">{user.username}</td>
                             <td className="align-middle">{user.name}</td>
                             <td className="align-middle">{user.lastName}</td>
                             <td className="align-middle">{user.email}</td>
+                            <td className="align-middle">{user.admin ? "Ja" : "Nein"}</td>
                             <td>
                                 <Link
                                     className="btn btn-primary mx-2"
@@ -78,7 +100,7 @@ export default function Home() {
                             <Link to={"/admin/adduser"}>
                                 <Button variant="link" onClick={handleClick} className="p-0 p-lg-1">
                                     <div className="d-flex justify-content-center align-items-center">
-                                        <FaPlus size={15} color="black"/>
+                                        <FaPlus size={15} color="black" />
                                     </div>
                                 </Button>
                             </Link>
