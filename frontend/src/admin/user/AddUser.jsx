@@ -16,7 +16,11 @@ export default function AddUser() {
     const{username, name, lastName, email, admin} = user;
 
     const onInputChange = (e) => {
-        setUser({...user, [e.target.name]:e.target.value});
+        const { name, value, type, checked } = e.target;
+        setUser({
+            ...user,
+            [name]: type === "checkbox" ? checked : value,
+        });
     };
 
     const onSubmit = async (e) => {
@@ -106,10 +110,10 @@ export default function AddUser() {
                             </label>
                             <br />
                             <input
-                                type={"checkbox"}
+                                type="checkbox"
                                 className="form-check-input"
                                 name="admin"
-                                value={admin}
+                                checked={admin}
                                 onChange={(e) => onInputChange(e)}
                             />
                         </div>

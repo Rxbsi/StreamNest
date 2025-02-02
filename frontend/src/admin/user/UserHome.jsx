@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaPlus } from "react-icons/fa";
 import { Button } from "react-bootstrap";
 
 export default function Home() {
     const [users, setUsers] = useState([]);
-    const { id } = useParams();
 
     useEffect(() => {
         loadUsers();
+        // eslint-disable-next-line
     }, []);
 
     const loadUsers = async () => {
@@ -63,7 +63,7 @@ export default function Home() {
                     </tr>
                     </thead>
                     <tbody>
-                    {users.map((user, index) => (
+                    {users.map((user) => (
                         <tr key={user.id}>
                             <td className="align-middle">{user.id}</td>
                             <td className="align-middle">{user.username}</td>
