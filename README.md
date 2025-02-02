@@ -1,4 +1,4 @@
-# 🎥 StreamNest
+# 📺 StreamNest
 
 ## 🔧 Projektbeschreibung
 StreamNest ist dein neues Zuhause für Filme und Videos – ein moderner und benutzerfreundlicher Streaming-Dienst, der dir genau die Funktionalität bietet, die du brauchst, ohne sich in unnötigen Features zu verlieren.
