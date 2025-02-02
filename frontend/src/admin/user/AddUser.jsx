@@ -9,10 +9,11 @@ export default function AddUser() {
         username:"",
         name:"",
         lastName:"",
-        email:""
+        email:"",
+        admin: false
     });
 
-    const{username, name, lastName, email} = user;
+    const{username, name, lastName, email, admin} = user;
 
     const onInputChange = (e) => {
         setUser({...user, [e.target.name]:e.target.value});
@@ -20,10 +21,25 @@ export default function AddUser() {
 
     const onSubmit = async (e) => {
         e.preventDefault();
+        const token = localStorage.getItem("token");
 
-        await axios.post("http://localhost:8080/api/user/create", user);
-        navigate("/");
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        };
+
+        try {
+            await axios.post("http://localhost:8080/api/user/create", user, config);
+            navigate("/admin/user");
+        } catch (error) {
+            console.error("Error fetching users:", error);
+        }
     };
+
+    const navigateToAdmin = () => {
+        navigate("/admin/user");
+    }
 
     return (
         <div className="container">
@@ -84,10 +100,23 @@ export default function AddUser() {
                                 onChange={(e) => onInputChange(e)}
                             />
                         </div>
-                        <button type="submit" className="btn btn-outline-primary">
+                        <div className="mb-3">
+                            <label htmlFor="admin" className="form-label">
+                                Admin User?
+                            </label>
+                            <br />
+                            <input
+                                type={"checkbox"}
+                                className="form-check-input"
+                                name="admin"
+                                value={admin}
+                                onChange={(e) => onInputChange(e)}
+                            />
+                        </div>
+                        <button type="submit" className="btn btn-outline-primary" onClick={navigateToAdmin}>
                             Submit
                         </button>
-                        <Link className="btn btn-outline-danger mx-2" to="/">
+                        <Link className="btn btn-outline-danger mx-2" to="/admin/user">
                             Cancel
                         </Link>
                     </form>
