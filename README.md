@@ -1,16 +1,15 @@
 # 🎥 StreamNest
 
 ## 🔧 Projektbeschreibung
-Dieses Projekt ist ein kompakter und moderner Streaming-Service, der als Übungsprojekt dient und nicht mit großen Plattformen wie Netflix konkurrieren soll.
-Es bietet grundlegende Funktionen für das Hochladen, Abrufen und Abspielen von Medieninhalten.
+StreamNest ist dein neues Zuhause für Filme und Videos – ein moderner und benutzerfreundlicher Streaming-Dienst, der dir genau die Funktionalität bietet, die du brauchst, ohne sich in unnötigen Features zu verlieren.
 
-Admins können Filme und Videos über einen HTTP-Endpunkt hochladen, die sicher in einem AWS S3-Bucket gespeichert werden.
-Die gespeicherten Dateien werden über generierte URLs bereitgestellt, sodass Inhalte bequem gestreamt werden können.
+Admins können über ein simples Admin-Tool ganz easy neue Filme und Videos hochladen und die Benutzerverwaltung durchführen. Filme werden sicher in einem AWS S3-Bucket gespeichert und können über benutzerfreundliche URLs gestreamt werden. Ein zentraler Admin steuert den gesamten Dienst und hat die Kontrolle über die Nutzer.
 
-Ein zentraler Admin-Benutzer verwaltet den Dienst und hat die Möglichkeit, neue Benutzer hinzuzufügen.
-Diese erhalten eine E-Mail, in der sie eingeladen werden, ein persönliches Passwort zu erstellen.
-Nach erfolgreicher Registrierung können die Benutzer auf die hochgeladenen Inhalte zugreifen und diese ansehen.
+Wenn ein neuer User hinzugefügt wird, erhält er eine E-Mail, in der er ein Passwort setzen kann. Danach kann er sich mit seinem Username und Passwort anmelden und sofort loslegen – Filme streamen, wann immer er möchte.
 
+
+## 🎥 Showcase
+**VIDEO FOLGT**
 
 ## 🛠️ Verwendete Sprachen und Technologien
 - **👨‍💻 Java**: Hauptprogrammiersprache
