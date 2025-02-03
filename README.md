@@ -1,7 +1,7 @@
 # 📺 StreamNest
 
 ## ✍ Projektbeschreibung
-StreamNest ist ein Projekt für mich selber um in der Arbeit mit JWT, AWS S3, Spring Boot und React vertrauter zu werden.
+StreamNest ist ein Projekt für mich selber um in der Arbeit mit JWT, AWS S3, RabbitMQ, Spring Boot und React vertrauter zu werden.
 Ziel ist nicht das Projekt zu veröffentlichen, sondern während der Arbeit an diesem Projekt mehr Kompetenz mit angegebenen TechStack zu erlangen.
 
 Für weitere Fragen gerne ein Issue öffnen oder eine Mail schreiben :) \
@@ -28,6 +28,7 @@ Gerne auch für Feedback o.ä.!
 - **📹 Video.js**: Zum rendern und schauen der Filme/Videos
 - **🌈 Bootstrap, SASS**: CSS Framework
 - **☁️ AWS, S3 Buckets**: Speicherung der Filme
+- **🐇 RabbitMQ**: Asynchrone verarbeitung bestimmter Tasks, bspw Email verschicken
 - **🎫 YouTrack**: Ticket Verwaltung für bessere übersicht
 - **🐘 PostgreSQL**: Für die restliche Datenspeicherung (User Verwaltung usw)
 
