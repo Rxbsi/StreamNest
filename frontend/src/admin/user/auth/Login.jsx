@@ -33,14 +33,14 @@ const Login = () => {
             });
 
             if (!response.ok) {
-                throw new Error('Login fehlgeschlagen');
+                throw new Error('Login failed');
             }
 
             const data = await response.json();
             login(data.token);
             navigate('/');
         } catch (err) {
-            setError('Username oder Passwort falsch');
+            setError('Username or Password is wrong!');
         }
     };
 

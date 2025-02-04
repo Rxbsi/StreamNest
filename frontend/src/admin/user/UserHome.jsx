@@ -22,7 +22,7 @@ export default function Home() {
         };
 
         try {
-            const result = await axios.get("http://localhost:8080/api/user/users", config);
+            const result = await axios.get("http://localhost:8080/api/user/listAllRealUsers", config);
             setUsers(result.data);
         } catch (error) {
             console.error("Error fetching users:", error);

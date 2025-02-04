@@ -1,19 +1,20 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Alert } from "react-bootstrap";
 
 export default function AddUser() {
     let navigate = useNavigate();
 
+    const [error, setError] = useState(null);
     const [user, setUser] = useState({
-        username:"",
-        name:"",
-        lastName:"",
-        email:"",
+        username: "",
+        name: "",
+        lastName: "",
+        email: "",
         admin: false
     });
-
-    const{username, name, lastName, email, admin} = user;
+    const { username, name, lastName, email, admin } = user;
 
     const onInputChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -23,10 +24,21 @@ export default function AddUser() {
         });
     };
 
+    const isValidEmail = (email) => {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    };
+
     const onSubmit = async (e) => {
         e.preventDefault();
-        const token = localStorage.getItem("token");
+        if (!isValidEmail(email)) {
+            setError("Please use a valid email address");
+            return;
+        }
 
+        setError(null);
+
+        const token = localStorage.getItem("token");
         const config = {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -38,19 +50,16 @@ export default function AddUser() {
             navigate("/admin/user");
         } catch (error) {
             console.error("Error fetching users:", error);
+            setError("Error on user creation");
         }
     };
-
-    const navigateToAdmin = () => {
-        navigate("/admin/user");
-    }
 
     return (
         <div className="container">
             <div className="row">
                 <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
                     <h2 className="text-center m-4">Register User</h2>
-
+                    {error && <Alert variant="danger">{error}</Alert>}
                     <form onSubmit={(e) => onSubmit(e)}>
                         <div className="mb-3">
                             <label htmlFor="Username" className="form-label">
@@ -96,7 +105,7 @@ export default function AddUser() {
                                 E-Mail
                             </label>
                             <input
-                                type={"text"}
+                                type={"text"} // text instead of mail for better error rendering
                                 className="form-control"
                                 placeholder="Enter your e-mail address"
                                 name="email"
@@ -117,7 +126,7 @@ export default function AddUser() {
                                 onChange={(e) => onInputChange(e)}
                             />
                         </div>
-                        <button type="submit" className="btn btn-outline-primary" onClick={navigateToAdmin}>
+                        <button type="submit" className="btn btn-outline-primary">
                             Submit
                         </button>
                         <Link className="btn btn-outline-danger mx-2" to="/admin/user">

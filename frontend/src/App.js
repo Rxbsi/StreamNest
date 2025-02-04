@@ -10,6 +10,7 @@ import PrivateRoute from "./admin/user/auth/route/PrivateRoute";
 import AdminRoute from "./admin/user/auth/route/AdminRoute";
 import Login from "./admin/user/auth/Login";
 import UploadHome from "./admin/upload/UploadHome";
+import Register from "./admin/user/auth/Register";
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                     <NestNavbar />
                     <Routes>
                         <Route path="/login" element={<Login />} />
+                        <Route path="/set-password" element={<Register />} />
 
                         <Route path="/" element={
                             <PrivateRoute>
