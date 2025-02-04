@@ -23,6 +23,11 @@ public class UserController {
         return userService.createUser(user);
     }
 
+    @GetMapping("/listAllRealUsers")
+    List<User> listAllRealUsers() {
+        return userService.findAllUsers();
+    }
+
     @GetMapping("/users")
     List<UserEntity> listAllUsers() {
         return userRepository.findAll();

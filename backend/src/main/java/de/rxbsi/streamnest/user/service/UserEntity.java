@@ -37,6 +37,9 @@ public class UserEntity implements UserDetails {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "user_token")
+    private String userToken;
+
     @Column(name = "admin")
     private boolean admin;
 

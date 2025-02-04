@@ -2,6 +2,7 @@ package de.rxbsi.streamnest.auth;
 
 import de.rxbsi.streamnest.auth.dto.AuthResponse;
 import de.rxbsi.streamnest.auth.dto.LoginRequest;
+import de.rxbsi.streamnest.auth.dto.PasswordResetRequest;
 import de.rxbsi.streamnest.auth.dto.RegisterRequest;
 import de.rxbsi.streamnest.auth.jwt.JwtService;
 import de.rxbsi.streamnest.user.service.UserEntity;
@@ -13,6 +14,8 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 @AllArgsConstructor
@@ -46,6 +49,21 @@ public class AuthController {
 
         return ResponseEntity.ok(response);
     }
+
+    @PostMapping("/set-password")
+    public ResponseEntity<?> setPassword(@RequestBody PasswordResetRequest request) {
+        String token = request.getToken();
+        String newPassword = request.getPassword();
+
+        UserEntity user = userRepository.findByUserToken(token).orElseThrow();
+
+        user.setPassword(passwordEncoder.encode(newPassword));
+        user.setUserToken(null);
+        userRepository.save(user);
+
+        return ResponseEntity.ok(Map.of("message", "Passwort erfolgreich geändert!"));
+    }
+
 
     /**
      *  WIRD NICHT IM FRONTEND VERWENDET. IST ZUR SICHERHEIT FALLS ALLE ADMIN USER GELÖSCHT WERDEN,

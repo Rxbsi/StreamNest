@@ -1,8 +1,6 @@
-package de.rxbsi.streamnest.auth;
+package de.rxbsi.streamnest.config;
 
-import de.rxbsi.streamnest.CorsConfig;
 import de.rxbsi.streamnest.auth.jwt.JwtAuthFilter;
-import de.rxbsi.streamnest.user.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

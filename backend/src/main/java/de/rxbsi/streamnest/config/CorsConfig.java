@@ -1,4 +1,4 @@
-package de.rxbsi.streamnest;
+package de.rxbsi.streamnest.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

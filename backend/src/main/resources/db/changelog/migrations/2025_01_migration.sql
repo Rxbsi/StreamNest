@@ -15,3 +15,7 @@ CREATE TABLE STREAM_USER
 -- changeset robin.franz:add-password
 ALTER TABLE STREAM_USER
     ADD COLUMN IF NOT EXISTS PASSWORD VARCHAR(255);
+
+-- changeset robin.franz:user-password-token
+ALTER TABLE STREAM_USER
+    ADD COLUMN IF NOT EXISTS USER_TOKEN VARCHAR(255);

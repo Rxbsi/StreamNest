@@ -1,5 +1,7 @@
 package de.rxbsi.streamnest.user.service;
 
+import java.util.List;
+
 public interface UserService {
 
     /**
@@ -17,6 +19,13 @@ public interface UserService {
      * @return   The User
      */
     User findUser(Long id);
+
+    /**
+     * Return all users with a password (All Real users)
+     *
+     * @return the above
+     */
+    List<User> findAllUsers();
 
     /**
      * Updates a User that already exists
