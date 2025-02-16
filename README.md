@@ -10,10 +10,10 @@ Gerne auch für Feedback o.ä.!
 
 ## 🔧 Features
 - JWT Login
-- Admin Tool zur Verwaltung von Usern und Upload von Filmen/Videos
+- Admin Tool zur Verwaltung von Usern und Upload von Videos
 - Email Password Verification
 - Watchlist zum merken von Filmen/Videos
-- Suche von Filmen über Searchbar
+- Suche von Videos über Searchbar
 
 
 ## 🎥 Showcase
@@ -25,9 +25,9 @@ Gerne auch für Feedback o.ä.!
 - **🎨 JavaScript**: Hauptprogrammiersprache Frontend
 - **📊 Spring Boot**: Framework für die REST-API
 - **🌐 React.js**: Frontend Framework
-- **📹 Video.js**: Zum rendern und schauen der Filme/Videos
+- **📹 Video.js**: Zum rendern und schauen der Videos
 - **🌈 Bootstrap, SASS**: CSS Framework
-- **☁️ AWS, S3 Buckets**: Speicherung der Filme
+- **☁️ AWS, S3 Buckets**: Speicherung der Videos
 - **🐇 RabbitMQ**: Asynchrone verarbeitung bestimmter Tasks, bspw Email verschicken
 - **🎫 YouTrack**: Ticket Verwaltung für bessere übersicht
 - **🐘 PostgreSQL**: Für die restliche Datenspeicherung (User Verwaltung usw)
