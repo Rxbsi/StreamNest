@@ -33,6 +33,20 @@ Gerne auch für Feedback o.ä.!
 - **🐘 PostgreSQL**: Für die restliche Datenspeicherung (User Verwaltung usw)
 
 
+## ⚙️ Setup-Anleitung
+
+1. **Projekt klonen**:
+   - Klone das Repository auf deinen lokalen Rechner.
+
+2. **SMTP Login anpassen**:
+   - Gehe in den Root-Ordner des Projekts und öffne die Datei `docker-compose.yml`.
+   - Passe die SMTP-Logins an deine eigenen Anmeldedaten an.
+   - Beachte, dass der Account **keine 2FA aktiviert** haben darf, da sonst entweder ein spezielles Passwort benötigt wird oder die 2FA den Login blockiert.
+
+3. **Docker-Setup starten**:
+   - Führe `docker-compose up` im Root-Ordner aus, um die notwendigen Container zu starten.
+
+
 ## 🔮 Ideen für die Zukunft
 - **🐍 Python**: Für die Implementation von Vorschlagsalgorithmen mit TensorFlow
 - ¯\\_(ツ)_/¯
