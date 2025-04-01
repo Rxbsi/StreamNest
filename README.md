@@ -18,6 +18,7 @@ Bestehende Features:
 - Email Verifikation des Users
 - Halbwegs schönes frontend (Projekt war zum frontend lernen da)
 - Token verification der anmeldung
+- Hinzugefügte Filme werden auf der Startseite angezeigt (nur der Name der in der DB gespeichert wurde, filme angucken habe ich nicht eingefügt (falls man es haben will kann mans aber auch ganz einfach selber machen))
 - ... Kann sein das ich was vergessen habe, habe länger nicht am Projekt gearbeitet
 
 
