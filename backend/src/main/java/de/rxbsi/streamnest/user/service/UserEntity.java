@@ -1,5 +1,6 @@
 package de.rxbsi.streamnest.user.service;
 
+import de.rxbsi.streamnest.storage.video.service.VideoEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -42,6 +43,9 @@ public class UserEntity implements UserDetails {
 
     @Column(name = "admin")
     private boolean admin;
+
+    @OneToMany(mappedBy = "user")
+    private List<VideoEntity> videos;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

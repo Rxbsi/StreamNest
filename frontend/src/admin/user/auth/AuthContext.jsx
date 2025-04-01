@@ -17,8 +17,6 @@ export const AuthProvider = ({ children }) => {
                 const decodedString = atob(payloadBase64);
                 const decoded = JSON.parse(decodedString);
 
-                console.log("Decoded Token:", decoded);
-
                 setUser({
                     username: decoded.username || "Unknown",
                     isAdmin: decoded.isAdmin ?? false,
@@ -42,8 +40,6 @@ export const AuthProvider = ({ children }) => {
 
             const decodedString = atob(payloadBase64);
             const decoded = JSON.parse(decodedString);
-
-            console.log("Decoded Token on Login:", decoded);
 
             setUser({
                 username: decoded.username || "Unknown",

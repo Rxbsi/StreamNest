@@ -9,8 +9,9 @@ import {AuthProvider} from "./admin/user/auth/AuthContext";
 import PrivateRoute from "./admin/user/auth/route/PrivateRoute";
 import AdminRoute from "./admin/user/auth/route/AdminRoute";
 import Login from "./admin/user/auth/Login";
-import UploadHome from "./admin/upload/UploadHome";
+import UploadHome from "./admin/files/videos/UploadHome";
 import Register from "./admin/user/auth/Register";
+import MainSite from "./layout/MainSite";
 
 function App() {
     return (
@@ -24,7 +25,7 @@ function App() {
 
                         <Route path="/" element={
                             <PrivateRoute>
-                                <div>Home Page</div>
+                                <MainSite />
                             </PrivateRoute>
                         } />
 

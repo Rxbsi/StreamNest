@@ -1,6 +1,5 @@
 package de.rxbsi.streamnest.user.service.impl;
 
-import de.rxbsi.streamnest.StreamNestApplication;
 import de.rxbsi.streamnest.mail.service.EmailService;
 import de.rxbsi.streamnest.user.mapping.UserMapper;
 import de.rxbsi.streamnest.user.resource.exception.UserNotFoundException;
@@ -31,9 +30,9 @@ public class UserServiceImpl implements UserService {
     public User createUser(User user) {
         var userEntity = userMapper.toEntity(user);
 
-        String token = UUID.randomUUID().toString();
+        var token = UUID.randomUUID().toString();
         userEntity.setUserToken(token);
-        String verificationLink = StreamNestApplication.URL + ":3000/set-password?token=" + token;
+        var verificationLink = "localhost:3000/set-password?token=" + token;
 
         var savedEntity = repository.save(userEntity);
         emailService.sendEmailRequest(
