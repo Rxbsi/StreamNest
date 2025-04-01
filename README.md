@@ -1,5 +1,26 @@
 # 📺 StreamNest
 
+## ❗DISCLAIMER
+Da ich nicht mehr am Projekt weiter Arbeite fehlen einige Features.
+Um sich das Projekt trotzdem anschauen zu können hier eine kurze Anleitung:
+
+1. Projekt downloaden/kopieren
+2. In der docker-compose.yml seine smtp daten eintragen
+3. In cmd:
+   1. docker compose build
+   2. docker compose up -d
+4. localhost:3000 aufrufen und mit username: admin passwort: admin anmelden
+
+Dann kann man alle bestehenden Features testen.
+Bestehende Features:
+- Admin Tool mit hinzufügen von Videos über aws/minio
+- User Hinzufügen/entfernen/bearbeiten
+- Email Verifikation des Users
+- Halbwegs schönes frontend (Projekt war zum frontend lernen da)
+- Token verification der anmeldung
+- ... Kann sein das ich was vergessen habe, habe länger nicht am Projekt gearbeitet
+
+
 ## ✍ Projektbeschreibung
 StreamNest ist ein Projekt für mich selber um in der Arbeit mit JWT, AWS S3, RabbitMQ, Spring Boot und React vertrauter zu werden.
 Ziel ist nicht das Projekt zu veröffentlichen, sondern während der Arbeit an diesem Projekt mehr Kompetenz mit angegebenen TechStack zu erlangen.
