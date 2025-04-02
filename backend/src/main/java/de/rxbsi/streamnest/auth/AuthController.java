@@ -64,37 +64,4 @@ public class AuthController {
         return ResponseEntity.ok(Map.of("message", "Passwort erfolgreich geändert!"));
     }
 
-
-    /**
-     *  WIRD NICHT IM FRONTEND VERWENDET. IST ZUR SICHERHEIT FALLS ALLE ADMIN USER GELÖSCHT WERDEN,
-     *  DAMIT MAN ÜBER POSTMAN EINEN ADMIN USER GENERIEREN KANN
-     */
-    @PostMapping("/register")
-    public ResponseEntity<AuthResponse> register(@RequestBody RegisterRequest request) {
-
-        if (userRepository.existsByUsername(request.getUsername())) {
-            return ResponseEntity.badRequest().body(new AuthResponse("Username already exists"));
-        }
-
-        UserEntity newUserEntity = new UserEntity();
-        newUserEntity.setUsername(request.getUsername());
-        newUserEntity.setPassword(passwordEncoder.encode(request.getPassword()));
-        newUserEntity.setEmail(request.getEmail());
-        newUserEntity.setName(request.getName());
-        newUserEntity.setLastName(request.getLastName());
-        newUserEntity.setAdmin(request.getAdmin());
-
-        userRepository.save(newUserEntity);
-
-        String token = jwtService.generateToken(newUserEntity);
-
-        AuthResponse response = AuthResponse.builder()
-                .token(token)
-                .username(newUserEntity.getUsername())
-                .isAdmin(newUserEntity.isAdmin())
-                .build();
-
-        return ResponseEntity.ok(response);
-    }
-
 }
